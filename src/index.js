@@ -32,7 +32,7 @@ function onClickSelect(e) {
   select.classList.add('hide');
   loader.classList.remove('hide');
   catInfo.classList.add('hide');
-  
+
   fetchCatByBreed(breedId)
     .then(resp => {
       select.classList.remove('hide');
