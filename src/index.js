@@ -36,7 +36,9 @@ function onClickSelect(e) {
   fetchCatByBreed(breedId)
     .then(resp => {
       select.classList.remove('hide');
+
       const data = resp.data[0].breeds[0];
+
       return `<img src="${resp.data[0].url}" alt="" width="500">
 		<h2>${data.name}</h2>
 		<p>${data.description}</p>
