@@ -1,5 +1,7 @@
 import { fetchBreeds, fetchCatByBreed } from './cat-api.js';
 import Notiflix from 'notiflix';
+import axios from 'axios';
+const axios = require('axios');
 
 const select = document.querySelector('.breed-select');
 
