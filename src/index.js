@@ -28,9 +28,11 @@ fetchBreeds()
 
 function onClickSelect(e) {
   const breedId = e.target.value;
+
   select.classList.add('hide');
   loader.classList.remove('hide');
   catInfo.classList.add('hide');
+  
   fetchCatByBreed(breedId)
     .then(resp => {
       select.classList.remove('hide');
