@@ -1,5 +1,6 @@
 import { fetchBreeds, fetchCatByBreed } from './cat-api';
 import Notiflix from 'notiflix';
+import SlimSelect from 'slim-select';
 
 const select = document.querySelector('.breed-select');
 
@@ -14,16 +15,18 @@ catInfo.style.marginTop = '30px';
 loader.classList.add('hide');
 error.classList.add('hide');
 
+let arrayOption = [];
+
 fetchBreeds()
   .then(response => {
-    return response
-      .map(
-        obj =>
-          `<option class="js-option" value="${obj.id}">${obj.name}</option>`
-      )
-      .join('');
+    response.map(obj => {
+      arrayOption.push({ text: obj.name, value: obj.id });
+    });
+    new SlimSelect({
+      select: '.breed-select',
+      data: arrayOption,
+    });
   })
-  .then(response => select.insertAdjacentHTML('beforeend', response))
   .catch(err => console.log(err));
 
 function onClickSelect(e) {
